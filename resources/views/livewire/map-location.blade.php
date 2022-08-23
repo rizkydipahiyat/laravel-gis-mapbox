@@ -53,139 +53,8 @@
             //     map.setFog({}); // Set the default atmosphere style
             // });
 
-            const geoJson = {
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                    "type": "Feature",
-                    "geometry": {
-                        "coordinates": [
-                        "106.73830754205",
-                        "-6.2922403995615"
-                        ],
-                        "type": "Point"
-                    },
-                    "properties": {
-                        "message": "Mantap",
-                        "iconSize": [
-                        50,
-                        50
-                        ],
-                        "locationId": 30,
-                        "title": "Hello new",
-                        "image": "https://seeklogo.com/images/M/mapbox-logo-D6FDDD219C-seeklogo.com.png",
-                        "description": "Mantap"
-                    }
-                    },
-                    {
-                    "type": "Feature",
-                    "geometry": {
-                        "coordinates": [
-                        "106.68681595869",
-                        "-6.3292244652013"
-                        ],
-                        "type": "Point"
-                    },
-                    "properties": {
-                        "message": "oke mantap Edit",
-                        "iconSize": [
-                        50,
-                        50
-                        ],
-                        "locationId": 29,
-                        "title": "Rumah saya Edit",
-                        "image": "https://seeklogo.com/images/M/mapbox-logo-D6FDDD219C-seeklogo.com.png",
-                        "description": "oke mantap Edit"
-                    }
-                    },
-                    {
-                    "type": "Feature",
-                    "geometry": {
-                        "coordinates": [
-                        "106.62490035406",
-                        "-6.3266855038639"
-                        ],
-                        "type": "Point"
-                    },
-                    "properties": {
-                        "message": "Update Baru",
-                        "iconSize": [
-                        50,
-                        50
-                        ],
-                        "locationId": 22,
-                        "title": "Update Baru Gambar",
-                        "image": "https://seeklogo.com/images/M/mapbox-logo-D6FDDD219C-seeklogo.com.png",
-                        "description": "Update Baru"
-                    }
-                    },
-                    {
-                    "type": "Feature",
-                    "geometry": {
-                        "coordinates": [
-                        "106.72391468711",
-                        "-6.3934163494543"
-                        ],
-                        "type": "Point"
-                    },
-                    "properties": {
-                        "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                        "iconSize": [
-                        50,
-                        50
-                        ],
-                        "locationId": 19,
-                        "title": "awdwad",
-                        "image": "https://seeklogo.com/images/M/mapbox-logo-D6FDDD219C-seeklogo.com.png",
-                        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-                    }
-                    },
-                    {
-                    "type": "Feature",
-                    "geometry": {
-                        "coordinates": [
-                        "106.67224158205",
-                        "-6.3884963990263"
-                        ],
-                        "type": "Point"
-                    },
-                    "properties": {
-                        "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                        "iconSize": [
-                        50,
-                        50
-                        ],
-                        "locationId": 18,
-                        "title": "adwawd",
-                        "image": "https://seeklogo.com/images/M/mapbox-logo-D6FDDD219C-seeklogo.com.png",
-                        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-                    }
-                    },
-                    {
-                    "type": "Feature",
-                    "geometry": {
-                        "coordinates": [
-                        "106.74495523289",
-                        "-6.3642034511073"
-                        ],
-                        "type": "Point"
-                    },
-                    "properties": {
-                        "message": "awdwad",
-                        "iconSize": [
-                        50,
-                        50
-                        ],
-                        "locationId": 12,
-                        "title": "adawd",
-                        "image": "https://seeklogo.com/images/M/mapbox-logo-D6FDDD219C-seeklogo.com.png",
-                        "description": "awdwad"
-                    }
-                    }
-                ]
-            }
 
-            const loadLocations = () => {
+            const loadLocations = (geoJson) => {
                 geoJson.features.forEach((location) => {
                     const { geometry, properties } = location
                     const { iconSize, locationId, title, image, description } = properties
@@ -227,7 +96,7 @@
                 })
             }
 
-            loadLocations()
+            loadLocations({!! $geoJson !!})
             
             // light-v10, outdoors-v11, satellite-v, streets-v11, dark-v10
             const style = "dark-v10"
